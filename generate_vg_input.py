@@ -17,7 +17,7 @@ import pandas as pd
 from nltk.stem import WordNetLemmatizer
 
 from configs import paths, consts
-from wsdm_data import utils
+from wsdm_data import utilsa
 
 
 L: logging.Logger = logging.getLogger(logging.basicConfig(level=logging.INFO))
@@ -34,8 +34,7 @@ def remove_no_one_yes_nothing(x):
     return x
 
 def lemmatize(x):
-    if x.split(' ')  == 1:
-        return wnl.lemmatize(x, 'n')
+    x = wnl.lemmatize(x, 'n')
     # remove preposition
     result = []
     for i in x.split(' '):

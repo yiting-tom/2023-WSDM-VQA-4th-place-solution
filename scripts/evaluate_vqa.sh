@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-# This script evaluates pretrained OFA-Large checkpoint on zero-shot open-domain VQA task.
-
-# The port for communication. Note that if you want to run multiple tasks on the same machine,
-# you need to specify different port numbers.
-export MASTER_PORT=8082
-export CUDA_VISIBLE_DEVICES=0,1
-export GPUS_PER_NODE=2
-
 user_dir=../ofa_module
 bpe_dir=../utils/BPE
 ########################## Evaluate VQA (zero-shot) ##########################
@@ -17,7 +9,6 @@ result_path=../dataset
 selected_cols=0,5,2,3,4
 subset=vqa
 
-# CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES} python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --master_port=${MASTER_PORT} ../evaluate.py \
 python3 ../evaluate.py \
     ${data} \
     --path=${path} \

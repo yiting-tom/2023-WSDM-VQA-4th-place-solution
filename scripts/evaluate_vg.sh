@@ -11,14 +11,13 @@ model="checkpoint.pt"
 
 path=../wsdm_checkpoints/${model}
 result_path=../dataset
-echo "Evaluating ${path} and saving results to ${result_path} ..."
 
 python3 ../evaluate.py \
     ${data} \
     --path=${path} \
     --user-dir=${user_dir} \
     --task=refcoco \
-    --batch-size=14 \
+    --batch-size=12 \
     --log-format=simple --log-interval=10 \
     --seed=7 \
     --gen-subset=${split} \

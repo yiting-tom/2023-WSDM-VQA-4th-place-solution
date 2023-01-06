@@ -22,7 +22,7 @@ python3 ../evaluate.py \
     --seed=7 \
     --gen-subset=${split} \
     --results-path=${result_path} \
-    --beam=1 \
+    --beam=30 \
     --min-len=4 \
     --max-len-a=0 \
     --max-len-b=4 \

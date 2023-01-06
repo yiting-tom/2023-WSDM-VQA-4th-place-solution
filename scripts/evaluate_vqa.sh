@@ -25,7 +25,7 @@ python3 ../evaluate.py \
     --results-path=${result_path} \
     --fp16 \
     --zero-shot \
-    --beam=1 \
+    --beam=30 \
     --unnormalized \
     --temperature=1.0 \
     --num-workers=0

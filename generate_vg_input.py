@@ -14,6 +14,7 @@ import re
 import logging
 
 import pandas as pd
+import nltk
 from nltk.stem import WordNetLemmatizer
 
 from configs import paths, consts

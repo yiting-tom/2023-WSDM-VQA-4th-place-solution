@@ -17,11 +17,13 @@ import pandas as pd
 from nltk.stem import WordNetLemmatizer
 
 from configs import paths, consts
-from wsdm_data import utilsa
+from wsdm_data import utils
 
 
 L: logging.Logger = logging.getLogger(logging.basicConfig(level=logging.INFO))
 
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 wnl = WordNetLemmatizer()
 
 

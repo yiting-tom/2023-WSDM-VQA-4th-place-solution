@@ -39,12 +39,21 @@ def format_answer_and_save_to_mnt(
         Returns:
             dict: The corrected bounding box with left, top, right, bottom
         """
-        box[box < 0] = 0
+        # unpack
         left, top, right, bottom = box
-        if left > right:
-            right = wh[0]
-        if top > bottom:
-            bottom = wh[1]
+        # first offset
+        left = max(0, left)
+        top = max(0, top)
+        right = min(wh[0], right)
+        bottom = min(wh[1], bottom)
+        # correct left-right and top-bottom
+        if left >= right:
+            right = left + wh[0] * 0.05
+        if top >= bottom:
+            bottom = top + wh[1] * 0.05
+        # second offset
+        right = min(wh[0], right)
+        bottom = min(wh[1], bottom)
         return dict(left=left, top=top, right=right, bottom=bottom)
 
     # correct bounding box

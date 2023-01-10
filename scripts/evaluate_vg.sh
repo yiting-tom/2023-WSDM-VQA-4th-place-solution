@@ -17,12 +17,12 @@ python3 ../evaluate.py \
     --path=${path} \
     --user-dir=${user_dir} \
     --task=refcoco \
-    --batch-size=12 \
+    --batch-size=4 \
     --log-format=simple --log-interval=10 \
     --seed=7 \
     --gen-subset=${split} \
     --results-path=${result_path} \
-    --beam=30 \
+    --beam=27 \
     --min-len=4 \
     --max-len-a=0 \
     --max-len-b=4 \

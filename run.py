@@ -11,10 +11,11 @@
 import time
 import logging
 
-from configs import paths
+import pandas as pd
+
+from configs import paths, consts
 from wsdm_data import utils
 
-import pandas as pd
 
 L: logging.Logger = logging.getLogger(logging.basicConfig(level=logging.INFO))
 
@@ -34,7 +35,7 @@ def main():
     df = pd.read_pickle(paths.FORMATED_TEST_PKL)
     odf = pd.read_csv(paths.TEST_CSV)
     assert len(df) == len(odf)
-    assert set(df.columns) == set(odf.columns)
+    assert set(df.columns) == set(consts.FORMTTED_PKL_COLUMNS), f"{set(df.columns)} != {set(consts.FORMTTED_PKL_COLUMNS)}"
 
     # == generate the VQA dataset from the formatted input ==
     run_script("generate_vqa_input.py")

@@ -14,6 +14,7 @@ import logging
 from configs import paths
 from wsdm_data import utils
 
+import pandas as pd
 
 L: logging.Logger = logging.getLogger(logging.basicConfig(level=logging.INFO))
 

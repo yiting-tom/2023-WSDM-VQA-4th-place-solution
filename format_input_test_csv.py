@@ -59,7 +59,7 @@ def main():
 	df['question'] = df['question'].apply(reformat_question)
 	
 	# adding missing columns
-	missing_columns = set(consts.FORMTTED_PKL_COLUMNS).difference(set(df.columns))
+	missing_columns = list(set(consts.FORMTTED_PKL_COLUMNS).difference(set(df.columns)))
 	df[missing_columns] = np.nan
 	assert set(consts.FORMTTED_PKL_COLUMNS) == set(df.columns)
 

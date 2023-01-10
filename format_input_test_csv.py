@@ -2,9 +2,10 @@ import re
 import logging
 import unicodedata
 
+import numpy as np
 import pandas as pd
 
-from configs import paths
+from configs import paths, consts
 
 
 L: logging.Logger = logging.getLogger(logging.basicConfig(level=logging.INFO))

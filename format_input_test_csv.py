@@ -56,10 +56,15 @@ def main():
 
 	L.info(f"reformat question")
 	df['question'] = df['question'].apply(reformat_question)
+	
+	# adding missing columns
+	missing_columns = set(consts.FORMTTED_PKL_COLUMNS).difference(set(df.columns))
+	df[missing_columns] = np.nan
+	assert set(consts.FORMTTED_PKL_COLUMNS) == set(df.columns)
 
 	L.info(f"save test csv: {paths.FORMATED_TEST_PKL}")
 	paths.FORMATED_TEST_PKL.parent.mkdir(parents=True, exist_ok=True)
-	df.to_pickle(paths.FORMATED_TEST_PKL)
+	df[consts.FORMTTED_PKL_COLUMNS].to_pickle(paths.FORMATED_TEST_PKL)
 
 if __name__ == '__main__':
 	main()

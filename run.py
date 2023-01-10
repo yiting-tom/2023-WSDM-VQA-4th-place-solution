@@ -30,6 +30,10 @@ def main():
     # == format the test csv ==
     run_script("format_input_test_csv.py")
     assert paths.FORMATED_TEST_PKL.exists()
+    df = pd.read_pickle(paths.FORMATED_TEST_PKL)
+    odf = pd.read_csv(paths.TEST_CSV)
+    assert len(df) == len(odf)
+    assert set(df.columns) == set(odf.columns)
 
     # == generate the VQA dataset from the formatted input ==
     run_script("generate_vqa_input.py")

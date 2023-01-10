@@ -18,14 +18,14 @@ python3 ../evaluate.py \
     --bpe-dir=${bpe_dir} \
     --patch-image-size=512 \
     --prompt-type='none' \
-    --batch-size=12 \
+    --batch-size=4 \
     --log-format=simple --log-interval=10 \
     --seed=7 \
     --gen-subset=${subset} \
     --results-path=${result_path} \
     --fp16 \
     --zero-shot \
-    --beam=30 \
+    --beam=27 \
     --unnormalized \
     --temperature=1.0 \
     --num-workers=0
